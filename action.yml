@@ -21,6 +21,10 @@ inputs:
     description: 'Walk through the whole website and check all the urls'
     required: false
     default: false
+  additionalArgs:
+    description: 'Additional arguments for broken-link-extractor'
+    required: false
+    default: ''
 outputs:
   result: # id of output
     description: 'Report of links'
