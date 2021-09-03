@@ -18,6 +18,7 @@ echo -e "Running broken link checker on URL: $GREEN $1 $NC"
 EXCLUDE="" 
 SET_FOLLOW=""
 SET_RECURSIVE=""
+ADDITIONAL_ARGS=""
 
 if [ -z "$1" ] || [ "$1" == 'https://github.com/celinekurpershoek/link-checker' ]
 then
@@ -38,7 +39,7 @@ echo -e "Configuration: \n Honor robot exclusions: $GREEN$2$NC, \n Exclude URLs 
 
 # Create command and remove extra quotes
 # Put result in variable to be able to iterate on it later
-OUTPUT="$(blc "$1" $EXCLUDE $SET_FOLLOW $SET_RECURSIVE -v | sed 's/"//g')"
+OUTPUT="$(blc "$1" $EXCLUDE $SET_FOLLOW $SET_RECURSIVE $ADDITIONAL_ARGS -v | sed 's/"//g')"
 
 # Count lines of output
 TOTAL_COUNT="$(wc -l <<< "$OUTPUT")"
